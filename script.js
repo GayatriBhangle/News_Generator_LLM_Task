@@ -2,6 +2,7 @@ const API_KEY = "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";
 async function getNews() {
   const newsContainer = document.getElementById("news-container");
   newsContainer.innerHTML = "Generating news...";
+  const input = document.getElementById("input");
 
   try {
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
@@ -15,7 +16,7 @@ async function getNews() {
         messages: [
           {
             role: "user",
-            content: "Generate a short news article about technology in simple language.",
+            content: "Generate a new on topic " + input.value ,
           }
         ],
       }),
@@ -32,4 +33,10 @@ async function getNews() {
     console.error("Error:", error);
     newsContainer.innerHTML = "An error occurred.";
   }
+}
+
+function clearNews() {
+  const newsContainer = document.getElementById("news-container");
+  newsContainer.innerHTML = "";
+  document.getElementById("input").value = "";
 }
