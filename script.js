@@ -1,5 +1,4 @@
-const API_KEY = "YOUR_GROQ_API_KEY";  // Replace with your LLM API Key
-
+const API_KEY = "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";  
 async function getNews() {
   const newsContainer = document.getElementById("news-container");
   newsContainer.innerHTML = "Generating news...";
